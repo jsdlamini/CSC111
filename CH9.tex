@@ -1,0 +1,472 @@
+\documentclass[aspectratio=169]{beamer}
+
+% Theme and Color Scheme
+\usetheme{Madrid}
+\usecolortheme{beaver}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{fontawesome5}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{natbib}
+\usepackage{hyperref}
+\usepackage{multicol}
+
+% Custom Colors
+\definecolor{myNewColorA}{RGB}{206,008,20}
+\definecolor{myNewColorB}{RGB}{26,168,217}
+\definecolor{myNewColorC}{RGB}{245, 233, 85}
+\definecolor{darkblue}{RGB}{0,51,102}
+\definecolor{lightblue}{RGB}{173,216,230}
+
+\setbeamercolor*{palette primary}{bg=myNewColorC}
+\setbeamercolor*{palette secondary}{bg=myNewColorB, fg=white}
+\setbeamercolor*{palette tertiary}{bg=myNewColorA, fg=white}
+\setbeamercolor*{titlelike}{fg=myNewColorA}
+\setbeamercolor*{title}{bg=myNewColorA, fg=white}
+\setbeamercolor*{item}{fg=myNewColorA}
+\setbeamercolor*{caption name}{fg=myNewColorA}
+\usefonttheme{professionalfonts}
+
+% Title Information
+\titlegraphic{\includegraphics[height=1.5cm]{UNESWA_logo.png}}
+\setbeamerfont{title}{size=\large}
+\setbeamerfont{subtitle}{size=\small}
+\setbeamerfont{author}{size=\small}
+\setbeamerfont{date}{size=\small}
+\setbeamerfont{institute}{size=\small}
+
+\title[University of Eswatini]{Free and Open Source Software - Unit 9}
+\subtitle{CSC111: Introduction to Computer Science}
+\author[J.S.D]{Mr. Johnson Dlamini}
+\institute[jsdlamini@uniswa.sz]{The University of Eswatini}
+\date{\today}
+
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Table of Contents}
+\tableofcontents
+\end{frame}
+
+\section{Introduction to FOSS}
+
+\begin{frame}
+\frametitle{Learning Outcomes}
+At the end of this unit, you should be able to:
+\begin{itemize}
+\item Describe free and open source software
+\item List the types of FOSS licenses
+\item List FOSS tools
+\item Describe FOSS culture characteristics
+\item Describe the genesis of FOSS
+\item List and explain the benefits of FOSS
+\item List and explain the challenges of FOSS
+\item Describe Humanitarian free and open source software (HFOSS)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{What is FOSS?}
+\begin{itemize}
+\item FOSS refers to software distributed under a license recognized as free software or free and open source software
+\item ``Open source'' refers to source code people can modify and share
+\item Design is publicly accessible
+\item Source code that anyone can inspect, modify, and enhance
+\item Benefits both programmers and non-programmers
+\item Much of the Internet is built on open source technologies:
+    \begin{itemize}
+    \item Linux operating system
+    \item Apache Web server application
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{FOSS Development Model}
+\begin{itemize}
+\item Developed under licenses that provide users with rights to:
+    \begin{itemize}
+    \item Run the software for any purpose
+    \item Modify the software
+    \item Distribute the software for free
+    \end{itemize}
+\item Created and maintained by teams of:
+    \begin{itemize}
+    \item Designers
+    \item Developers
+    \item People with other IT skills
+    \end{itemize}
+\item Community-driven development approach
+\end{itemize}
+\end{frame}
+
+\section{Types of FOSS Licenses}
+
+\begin{frame}
+\frametitle{FOSS License Types}
+\begin{enumerate}
+\item GNU GPL (General Public License)
+\item GNU LGPL (Lesser General Public License)
+\item BSD version 2
+\item BSD version 3
+\item Apache license
+\item MIT license
+\item Mozilla public license
+\item Common development and distribution license
+\item Eclipse public license
+\item Creative commons license
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Why Choose FOSS?}
+\textbf{Major reasons why individuals/organizations choose FOSS:}
+\begin{enumerate}
+\item \textbf{Free} - No licensing costs
+\item \textbf{Security} - Transparent code review
+\item \textbf{Better quality} - Community-driven improvements
+\item \textbf{Transparency} - Source code is accessible
+\item \textbf{No vendor lock-in} - Independence from proprietary solutions
+\end{enumerate}
+\end{frame}
+
+\section{FOSS Tools and Examples}
+
+\begin{frame}
+\frametitle{Popular FOSS Tools (Part 1)}
+\begin{multicols}{2}
+\begin{enumerate}
+\item GNU utilities and compilers
+\item Linux kernel
+\item Ubuntu
+\item BSD OS
+\item Samba
+\item MySQL
+\item Apache
+\item Google Chrome
+\item Symbian smartphone OS
+\item Android
+\item Mozilla Firefox
+\end{enumerate}
+\end{multicols}
+\end{frame}
+
+\begin{frame}
+\frametitle{Popular FOSS Tools (Part 2)}
+\begin{multicols}{2}
+\begin{enumerate}
+\setcounter{enumi}{11}
+\item PDFcreator
+\item PHP
+\item Python
+\item Java
+\item PERL
+\item R
+\item Quincy
+\item PostgreSQL
+\item FEDORA
+\item RUBY
+\end{enumerate}
+\end{multicols}
+\end{frame}
+
+\section{FOSS Culture Characteristics}
+
+\begin{frame}
+\frametitle{FOSS Culture}
+\textbf{FOSS culture is a culture of people willing to work for the common good of communities.}
+
+Key characteristics include:
+\begin{itemize}
+\item Communal Development
+\item Openness
+\item Transparency
+\item Open Licensing
+\item Distributed, Global Environment
+\item Meritocratic Process
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Communal Development}
+\begin{itemize}
+\item Many FOSS projects are community-based
+\item Community decides the direction of the project
+\item Provides students with professional interaction opportunities
+\item Communication is crucial for maintaining healthy community
+\item Numerous opportunities to learn professional communication
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Openness and Transparency}
+\textbf{Openness:}
+\begin{itemize}
+\item Most projects welcome new contributors, including volunteers
+\item Many projects eager to embrace students as long-term contributors
+\end{itemize}
+
+\textbf{Transparency:}
+\begin{itemize}
+\item All source code and artifacts are available
+\item Code is modifiable and long-lived
+\item Project history can be examined
+\item Students can access artifacts throughout project history
+\item Contributions are visible
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Open Licensing and Global Environment}
+\textbf{Open Licensing:}
+\begin{itemize}
+\item Source code must be available for modification
+\item Avoids intellectual property issues
+\item No proprietary development concerns
+\end{itemize}
+
+\textbf{Distributed, Global Environment:}
+\begin{itemize}
+\item Projects used and developed worldwide
+\item Students observe globally distributed software teams
+\item Opportunity to participate in international collaboration
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Meritocratic Process}
+\begin{itemize}
+\item FOSS operates on a form of meritocracy
+\item Responsibilities increase as contributors demonstrate capabilities
+\item Environment allows students to:
+    \begin{itemize}
+    \item Gain confidence in their abilities
+    \item Grow professionally
+    \item Build reputation based on contributions
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\section{Genesis of FOSS}
+
+\begin{frame}
+\frametitle{The Birth of FOSS}
+\begin{itemize}
+\item Emerged when large software makers tried to control software use
+\item Imposed unacceptable conditions on users
+\item Response to restrictions on software freedom
+\item Founded by Richard Stallman
+\item Established the Free Software Foundation (FSF)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Four Freedoms of Free Software}
+Richard Stallman emphasized four primary freedoms:
+\begin{enumerate}
+\item \textbf{Freedom to use} the software
+\item \textbf{Freedom to study} the software
+\item \textbf{Freedom to copy and share} the software
+\item \textbf{Freedom to modify and redistribute} the software
+\end{enumerate}
+
+These freedoms form the basis of the GNU General Public License (GPL).
+\end{frame}
+
+\begin{frame}
+\frametitle{Licensing Systems}
+\textbf{Two main initiatives with different licensing approaches:}
+
+\begin{itemize}
+\item \textbf{Free Software Foundation (FSF)}
+    \begin{itemize}
+    \item For free software licenses
+    \item Emphasis on user freedoms
+    \end{itemize}
+\item \textbf{Open Source Initiative (OSI)}
+    \begin{itemize}
+    \item For open source software licenses
+    \item Focus on development methodology
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\section{Benefits of FOSS}
+
+\begin{frame}
+\frametitle{FOSS Benefits}
+\begin{enumerate}
+\item \textbf{Open distribution} of data and information
+\item \textbf{Free distribution} of data and information
+\item \textbf{Technology can be modified} to suit specific needs
+\item \textbf{Technology can be localized} for different regions
+\item \textbf{Technology can be customized} for specific requirements
+\item \textbf{Technology can be redistributed} freely
+\item \textbf{Beneficial in bridging the digital divide gap}
+\item \textbf{Flexibility} in implementation and use
+\end{enumerate}
+\end{frame}
+
+\section{Challenges of FOSS}
+
+\begin{frame}
+\frametitle{FOSS Challenges and Limitations}
+\begin{enumerate}
+\item \textbf{Exposes source code to hackers}
+    \begin{itemize}
+    \item Security through obscurity is lost
+    \item Potential for malicious exploitation
+    \end{itemize}
+\item \textbf{No clear ownership}
+    \begin{itemize}
+    \item Responsibility and accountability issues
+    \item Legal liability concerns
+    \end{itemize}
+\item \textbf{Compatibility issues}
+    \begin{itemize}
+    \item Integration with proprietary systems
+    \item Standards compliance challenges
+    \end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Additional FOSS Challenges}
+\begin{enumerate}
+\setcounter{enumi}{3}
+\item \textbf{Resistance to change}
+    \begin{itemize}
+    \item User adoption barriers
+    \item Training and support requirements
+    \end{itemize}
+\item \textbf{Dependent on community collaboration}
+    \begin{itemize}
+    \item Sustainability concerns
+    \item Volunteer-driven development
+    \end{itemize}
+\item \textbf{Physical infrastructure requirements}
+    \begin{itemize}
+    \item Hardware and network dependencies
+    \item Technical expertise needed
+    \end{itemize}
+\end{enumerate}
+\end{frame}
+
+\section{Humanitarian FOSS (HFOSS)}
+
+\begin{frame}
+\frametitle{What is HFOSS?}
+\textbf{Humanitarian Free and Open Source Software (HFOSS)}
+
+\begin{itemize}
+\item Extends from basic characteristics of FOSS
+\item \textbf{Key difference:} HFOSS aims at serving society in some direct way
+\item Allows students to see how fundamental software engineering principles are
+\item Provides opportunity to use programming and problem-solving skills
+\item Contributes to expanding community volunteerism
+\item Characterizes modern university campuses
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Exposing Students to HFOSS}
+\textbf{Benefits for students:}
+\begin{itemize}
+\item Learn real-world skills, attitudes, and experiences
+\item Boosts confidence through practical application
+\item Work on much larger projects than traditional class exercises
+\item Gain exposure to professional software development
+\item Contribute to meaningful social causes
+\item Develop collaborative skills in distributed teams
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{HFOSS Educational Value}
+\textbf{Main justification for student participation in HFOSS projects:}
+
+\begin{itemize}
+\item Offers opportunity to work on much larger projects
+\item Goes beyond traditional classroom exercises
+\item Provides real-world experience
+\item Develops professional software engineering skills
+\item Creates meaningful impact on society
+\item Builds portfolio of substantial contributions
+\end{itemize}
+\end{frame}
+
+\section{Activities and Assessment}
+
+\begin{frame}
+\frametitle{Activity Questions}
+\begin{enumerate}
+\item Differentiate between Free and Open Source Software (FOSS) and Open Source Software (OSS)
+
+\item Why is FOSS the most commonly used software globally?
+
+\item List and explain five advantages of commercial software over FOSS
+
+\item List and explain five advantages of FOSS over commercial software
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Unit Summary}
+\textbf{In this unit, learners have studied:}
+
+\begin{enumerate}
+\item Introduction to FOSS
+\item Genesis of FOSS
+\item FOSS culture characteristics
+\item Types of FOSS licenses
+\item Benefits and challenges of FOSS
+\item Humanitarian free and open source software
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Key Takeaways}
+\begin{itemize}
+\item FOSS represents a fundamental shift in software development philosophy
+\item Community-driven development creates robust, secure software
+\item Four freedoms form the foundation of free software movement
+\item HFOSS extends FOSS principles to serve humanitarian purposes
+\item Students benefit greatly from participation in FOSS projects
+\item FOSS plays crucial role in bridging the digital divide
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Questions?}
+\begin{center}
+\Large Thank you for your attention!
+
+\vspace{1cm}
+
+Any questions about Free and Open Source Software?
+
+\vspace{1cm}
+
+\textit{Remember: "Free as in freedom, not just free as in beer"}
+\end{center}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,372 @@
+%%% Template originally created by Karol Kozioł (mail@karol-koziol.net) and modified for ShareLaTeX use
+
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+\renewcommand\familydefault{\sfdefault}
+\usepackage{tgheros}
+
+\usepackage{amsmath,amssymb,amsthm,textcomp}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage{geometry}
+\geometry{left=25mm,right=25mm,%
+bindingoffset=0mm, top=20mm,bottom=20mm}
+
+\linespread{1.3}
+
+\newcommand{\linia}{\rule{\linewidth}{0.5pt}}
+
+% custom theorems if needed
+\newtheoremstyle{mytheor}
+    {1ex}{1ex}{\normalfont}{0pt}{\scshape}{.}{1ex}
+    {{\thmname{#1 }}{\thmnumber{#2}}{\thmnote{ (#3)}}}
+
+\theoremstyle{mytheor}
+\newtheorem{defi}{Definition}
+
+% my own titles
+\makeatletter
+\renewcommand{\maketitle}{
+\begin{center}
+\vspace{2ex}
+{\huge \textsc{\@title}}
+\vspace{1ex}
+\\
+\linia\\
+\@author \hfill \@date
+\vspace{4ex}
+\end{center}
+}
+\makeatother
+
+% custom footers and headers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{}
+\lfoot{\tiny{CSC111 Practical Lab \textnumero{} 2}}
+\cfoot{}
+\rfoot{Page \thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% code listing settings
+\usepackage{listings}
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    aboveskip={1.0\baselineskip},
+    belowskip={1.0\baselineskip},
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=4,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=lines,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    numbers=left,
+    numberstyle=\small,
+    stepnumber=1,
+    numbersep=10pt,
+    captionpos=t,
+    escapeinside={\%*}{*)}
+}
+
+\begin{document}
+
+\begin{minipage}{\textwidth}
+\begin{center}
+\includegraphics[scale=0.2]{UNESWA_logo.png}\\
+\Large{\textbf{University of Eswatini}}
+ 
+\Large{\textbf{Faculty of Science and Engineering}} \\
+\textbf{Department of Computer Science} \\
+
+\hrule 
+
+\end{center}
+\end{minipage}\\[0.2cm]
+
+\begin{minipage}{\textwidth}
+ 
+\large{\textbf{Course}:CSC111: Introduction to Computer Science} \hfill \large{\textbf{Topic}: String Operations}  \\ 
+
+\vspace{4}
+
+\textbf{Instructor}:   \hfill    \textbf{Due Date}: Inclass
+\vspace{2}
+\hrule   
+
+\vspace{1}
+
+\large{\textbf{Target Group(s):}} \hfill  \textbf{Marks}= \textbf{}  \\
+\textbf{Bachelor of Science in Information Technology}\\
+\textbf{Bachelor of Science in Computer Science Education} \\
+\textbf{Bachelor of Engineering}\\
+\textbf{Bachelor of Science in Information Science}\\
+\textbf{Bachelor of Geographic Information Science}\\
+\end{minipage}\\[0.1cm]
+ 
+\section*{Instructions} 
+\begin{enumerate}
+    \item All assignments/projects/labs must be completed and presented for marking by the due date. 
+    \item Students who miss TESTS, ASSIGNMENTS and QUIZZES without a genuine reason will be awarded a zero mark, resulting in them repeating the course.
+    \item Plagiarism and duplication of your fellow student's work is prohibited and will result in a zero-mark.
+    \item Students are free to use any compiler or interpreter and text editor. These will be useful in the event there is a need for code demonstration. 
+    \item Submission is only allowed through the UNESWA e-learning system (https://learn.uneswa.ac.sz/). Submit all files in a password-less zip folder with a filename \textbf{\textit{studentId\_prac2.zip}} (where studentId is your student number). An example submission filename would be like \textbf{202300001\_prac2.zip}).
+\end{enumerate} 
+  
+\section*{Python String Exercises (Week 2)}
+
+For this week, we will focus on string operations and manipulation (refer to pages 20-22 of the lecture notes).  
+Emphasis should be placed on:
+\begin{itemize}
+    \item Using \textbf{meaningful variable names} for strings.
+    \item Understanding \textbf{string indexing and slicing}.
+    \item Applying various \textbf{string methods} for manipulation.
+    \item Using \textbf{formatted strings} for clean output.
+\end{itemize}
+
+\subsection*{Exercises}
+
+\begin{enumerate}
+    \item \textbf{Personal Information Display}  
+    
+    Create a program that stores personal information using strings and displays it in a formatted manner:
+    \begin{enumerate} 
+        \item Get user input for first name, last name, and city of residence.
+        \item Display the information in the following format:
+        \begin{itemize}
+            \item Full name in uppercase
+            \item City name in title case (first letter capitalized)
+            \item Number of characters in the full name (excluding spaces)
+        \end{itemize}
+    \end{enumerate}
+    
+    \textbf{Example Python Skeleton:}
+%     \begin{lstlisting}
+% first_name = input("Enter your first name: ")
+% last_name = input("Enter your last name: ")
+% city = input("Enter your city: ")
+
+% # Convert full name to uppercase
+% full_name = first_name + " " + last_name
+% full_name_upper = full_name.upper()
+
+% # Convert city to title case
+% city_formatted = city.title()
+
+% # Calculate name length without spaces
+% name_length = len(first_name) + len(last_name)
+
+% print(f"Full Name: {full_name_upper}")
+% print(f"City: {city_formatted}")
+% print(f"Name Length: {name_length} characters")
+%     \end{lstlisting}
+    
+    \item \textbf{String Slicing and Manipulation}
+    
+    Given a sentence, students should perform various slicing operations:
+    \begin{enumerate} 
+        \item Take a sentence as input from the user.
+        \item Extract and display:
+        \begin{itemize}
+            \item The first 5 characters
+            \item The last 5 characters
+            \item Every second character from the sentence
+            \item The middle portion of the string
+        \end{itemize}
+    \end{enumerate}
+    
+    \textbf{Example Python Skeleton:}
+%     \begin{lstlisting}
+% sentence = input("Enter a sentence: ")
+
+% # First 5 characters
+% first_five = sentence[0:5]
+
+% # Last 5 characters
+% last_five = sentence[-5:]
+
+% # Every second character
+% every_second = sentence[::2]
+
+% # Middle portion
+% length = len(sentence)
+% middle_start = length // 4
+% middle_end = 3 * length // 4
+% middle_portion = sentence[middle_start:middle_end]
+
+% print(f"Original sentence: {sentence}")
+% print(f"First 5 characters: {first_five}")
+% print(f"Last 5 characters: {last_five}")
+% print(f"Every second character: {every_second}")
+% print(f"Middle portion: {middle_portion}")
+%     \end{lstlisting}
+
+    \item \textbf{Email Validator and Formatter}
+    
+    Create a program that validates and formats email addresses:
+    \begin{enumerate} 
+        \item Get an email address from the user.
+        \item Extract and display the username (before @) and domain (after @).
+        \item Convert the email to lowercase.
+        \item Check if the email contains "@" and ".".
+        \item Remove any leading/trailing whitespaces.
+    \end{enumerate}
+    
+    \textbf{Example Python Skeleton:}
+%     \begin{lstlisting}
+% email = input("Enter your email address: ")
+
+% # Remove whitespaces
+% email_clean = email.strip()
+
+% # Convert to lowercase
+% email_lower = email_clean.lower()
+
+% # Check for @ and .
+% has_at = "@" in email_lower
+% has_dot = "." in email_lower
+
+% if has_at and has_dot:
+%     # Split username and domain
+%     at_position = email_lower.find("@")
+%     username = email_lower[0:at_position]
+%     domain = email_lower[at_position+1:]
+    
+%     print(f"Valid email format!")
+%     print(f"Formatted email: {email_lower}")
+%     print(f"Username: {username}")
+%     print(f"Domain: {domain}")
+% else:
+%     print("Invalid email format!")
+%     \end{lstlisting}
+
+%     \item \textbf{Text Statistics Calculator}
+    
+%     Create a program that analyzes a text string and provides statistics:
+%     \begin{enumerate} 
+%         \item Get a multiline text from the user.
+%         \item Calculate and display:
+%         \begin{itemize}
+%             \item Total number of characters (including spaces)
+%             \item Total number of characters (excluding spaces)
+%             \item Number of words
+%             \item Number of uppercase letters
+%             \item Number of lowercase letters
+%         \end{itemize}
+%     \end{enumerate}
+    
+%     \textbf{Example Python Skeleton:}
+%     \begin{lstlisting}
+% text = input("Enter a text: ")
+
+% # Total characters
+% total_chars = len(text)
+
+% # Characters without spaces
+% chars_no_space = len(text.replace(" ", ""))
+
+% # Count words (split by spaces)
+% words = text.split()
+% word_count = len(words)
+
+% # Count uppercase and lowercase
+% uppercase_count = sum(1 for char in text if char.isupper())
+% lowercase_count = sum(1 for char in text if char.islower())
+
+% print(f"Text Statistics:")
+% print(f"Total characters (with spaces): {total_chars}")
+% print(f"Total characters (without spaces): {chars_no_space}")
+% print(f"Number of words: {word_count}")
+% print(f"Uppercase letters: {uppercase_count}")
+% print(f"Lowercase letters: {lowercase_count}")
+%     \end{lstlisting}
+
+    \item \textbf{String Replacement Tool}
+    
+    Create a program that performs text replacement operations:
+    \begin{enumerate} 
+        \item Get a sentence from the user.
+        \item Ask for a word to find and a word to replace it with.
+        \item Perform the replacement (case-insensitive).
+        \item Display both the original and modified sentences.
+        \item Show how many replacements were made.
+    \end{enumerate}
+    
+    \textbf{Example Python Skeleton:}
+%     \begin{lstlisting}
+% sentence = input("Enter a sentence: ")
+% find_word = input("Enter word to find: ")
+% replace_word = input("Enter replacement word: ")
+
+% # Count occurrences
+% count = sentence.lower().count(find_word.lower())
+
+% # Perform replacement (case-insensitive approach)
+% modified_sentence = sentence.replace(find_word, replace_word)
+
+% print(f"\nOriginal sentence: {sentence}")
+% print(f"Modified sentence: {modified_sentence}")
+% print(f"Number of replacements made: {count}")
+%     \end{lstlisting}
+
+%     \item \textbf{Student ID Generator}
+    
+%     Create a program that generates a student ID based on user information:
+%     \begin{enumerate} 
+%         \item Get the student's first name, last name, and year of admission.
+%         \item Generate a student ID using the format: YYYY-FFFFLLLL
+%         \begin{itemize}
+%             \item YYYY = year
+%             \item FFFF = first 4 letters of first name (uppercase)
+%             \item LLLL = first 4 letters of last name (uppercase)
+%         \end{itemize}
+%         \item If names are shorter than 4 letters, pad with X's.
+%     \end{enumerate}
+    
+%     \textbf{Example Python Skeleton:}
+%     \begin{lstlisting}
+% first_name = input("Enter first name: ")
+% last_name = input("Enter last name: ")
+% year = input("Enter year of admission (YYYY): ")
+
+% # Extract first 4 letters and convert to uppercase
+% first_part = first_name[0:4].upper()
+% last_part = last_name[0:4].upper()
+
+% # Pad with X if necessary
+% while len(first_part) < 4:
+%     first_part = first_part + "X"
+    
+% while len(last_part) < 4:
+%     last_part = last_part + "X"
+
+% # Generate student ID
+% student_id = f"{year}-{first_part}{last_part}"
+
+% print(f"\nGenerated Student ID: {student_id}")
+% print(f"Full Name: {first_name} {last_name}")
+% print(f"Year: {year}")
+%     \end{lstlisting}
+
+\end{enumerate}
+
+\section*{Additional Challenge (Optional)}
+
+Create a program that takes a full sentence and creates an acronym from it by taking the first letter of each word and converting it to uppercase. For example, "University of Eswatini" should produce "UOE".
+
+\end{document}

@@ -1,0 +1,949 @@
+%%% Template originaly created by Karol Kozioł (mail@karol-koziol.net) and modified for ShareLaTeX use
+
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\renewcommand\familydefault{\sfdefault}
+\usepackage{tgheros}
+
+\usepackage{amsmath,amssymb,amsthm,textcomp}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage{geometry}
+\geometry{left=25mm,right=25mm,%
+bindingoffset=0mm, top=20mm,bottom=20mm}
+
+\linespread{1.3}
+
+\newcommand{\linia}{\rule{\linewidth}{0.5pt}}
+
+% custom theorems if needed
+\newtheoremstyle{mytheor}
+    {1ex}{1ex}{\normalfont}{0pt}{\scshape}{.}{1ex}
+    {{\thmname{#1 }}{\thmnumber{#2}}{\thmnote{ (#3)}}}
+
+\theoremstyle{mytheor}
+\newtheorem{defi}{Definition}
+
+% my own titles
+\makeatletter
+\renewcommand{\maketitle}{
+\begin{center}
+\vspace{2ex}
+{\huge \textsc{\@title}}
+\vspace{1ex}
+\\
+\linia\\
+\@author \hfill \@date
+\vspace{4ex}
+\end{center}
+}
+\makeatother
+%%%
+
+% custom footers and headers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{}
+\lfoot{\tiny{CSC111 Practical Lab \textnumero{} 3}}
+\cfoot{}
+\rfoot{Page \thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+%
+
+% code listing settings
+\usepackage{listings}
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    aboveskip={1.0\baselineskip},
+    belowskip={1.0\baselineskip},
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=4,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=lines,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    numbers=left,
+    numberstyle=\small,
+    stepnumber=1,
+    numbersep=10pt,
+    captionpos=t,
+    escapeinside={\%*}{*)}
+}
+
+%%%----------%%%----------%%%----------%%%----------%%%
+
+\begin{document}
+
+\begin{minipage}{\textwidth}
+\begin{center}
+\includegraphics[scale=0.2]{UNESWA_logo.png}\\
+\Large{\textbf{University of Eswatini}}
+ 
+\Large{\textbf{Faculty of Science and Engineering}} \\
+\textbf{Department of Computer Science} \\
+
+\hrule 
+
+\end{center}
+\end{minipage}\\[0.2cm]
+
+\begin{minipage}{\textwidth}
+ 
+\large{\textbf{Course}:CSC111: Introduction to Computer Science} \hfill \large{\textbf{Topic}: Python Operators}  \\ 
+
+\vspace{4}
+
+\textbf{Instructor}:   \hfill    \textbf{Due Date}: Inclass
+\vspace{2}
+\hrule   
+
+\vspace{1}
+
+\large{\textbf{Target Group(s):}} \hfill  \textbf{Marks}= \textbf{100}  \\
+\textbf{Bachelor of Science in Information Technology}\\
+\textbf{Bachelor of Science in Computer Science Education} \\
+\textbf{Bachelor of Engineering}\\
+\textbf{Bachelor of Science in Information Science}\\
+\end{minipage}\\[0.1cm]
+ 
+\section*{Instructions} 
+\begin{enumerate}
+    \item All assignments/projects/labs must be completed and presented for marking by the due date. 
+    \item Students who miss TESTS, ASSIGNMENTS and QUIZZES without a genuine reason will be awarded a zero mark, resulting in them repeating the course.
+    \item Plagiarism and duplication of your fellow student's work is prohibited and will result in a zero-mark.
+    \item Students are free to use any compiler or interpreter and text editor. These will be useful in the event there is a need for code demonstration. 
+    \item Submission is only allowed through the UNESWA e-learning system (https://learn.uneswa.ac.sz/). Submit all files in a password-less zip folder with a filename \textbf{\textit{studentId\_prac3.zip}} (where studentId is your student number). An example submission filename would be like \textbf{202300001\_prac3.zip}).
+\end{enumerate} 
+  
+\section*{Python Operator Exercises (Week 3)}
+
+For this week, we will focus on various types of operators in Python (refer to pages 23-30 of the lecture notes).  
+
+This exercise will help you practice:
+\begin{itemize}
+    \item \textbf{Arithmetic operators} for calculations
+    \item \textbf{Comparison operators} to compare values
+    \item \textbf{Logical operators} to combine conditions
+    \item \textbf{Membership operators} to check strings
+\end{itemize}
+
+\subsection*{Exercise}
+
+\textbf{Shopping Bill Calculator} \hfill \textbf{[100 marks]}
+
+\subsection*{Problem Scenario}
+
+You are shopping at a local store and want to create a simple program to calculate your bill and determine if you qualify for discounts.
+
+The store has the following rules:
+\begin{itemize}
+    \item Students get a 10\% discount
+    \item Purchases over E500 get a 5\% discount
+    \item Local customers (from Eswatini) get free delivery
+    \item International customers pay E50 delivery fee
+\end{itemize}
+
+\subsection*{Your Task}
+
+Write a Python program that:
+
+\begin{enumerate}
+    \item Asks the customer for:
+    \begin{itemize}
+        \item Their name
+        \item Whether they are a student (yes/no)
+        \item Their country
+        \item Price of first item
+        \item Price of second item
+        \item Price of third item
+    \end{itemize}
+    
+    \item Calculates:
+    \begin{itemize}
+        \item Total cost (sum of three items)
+        \item Student discount amount (10\% if applicable)
+        \item Bulk discount amount (5\% if total over E500)
+        \item Delivery fee (E0 for Eswatini, E50 for others)
+        \item Final amount to pay
+    \end{itemize}
+    
+    \item Displays:
+    \begin{itemize}
+        \item Customer name
+        \item Subtotal (before discounts)
+        \item Whether customer is a student
+        \item Whether customer qualifies for bulk discount
+        \item Total discount amount
+        \item Delivery fee
+        \item Final bill amount
+    \end{itemize}
+\end{enumerate}
+
+\subsection*{Requirements}
+
+Your program must use:
+\begin{itemize}
+    \item \textbf{Arithmetic operators} (+, -, *, /) to calculate totals and discounts
+    \item \textbf{Comparison operators} (>, >=, ==) to check discount eligibility
+    \item \textbf{Logical operators} (and, or) to combine conditions
+    \item \textbf{Membership operators} (in, not in) to check if "Eswatini" is in the country name
+\end{itemize}
+
+\subsection*{Sample Output}
+
+\begin{lstlisting}
+Enter your name: Sipho Dlamini
+Are you a student? (yes/no): yes
+Enter your country: Eswatini
+Enter price of item 1: E 200
+Enter price of item 2: E 150
+Enter price of item 3: E 180
+
+===== SHOPPING BILL =====
+Customer: Sipho Dlamini
+Is Student: True
+From Eswatini: True
+
+Subtotal: E 530.0
+Student Discount (10%): E 53.0
+Bulk Discount (5%): E 26.5
+Total Discounts: E 79.5
+Delivery Fee: E 0.0
+
+FINAL AMOUNT: E 450.5
+=========================
+\end{lstlisting}
+
+\subsection*{Hints}
+
+\begin{itemize}
+    \item To calculate 10\% of a value: \texttt{value * 0.10}
+    \item To check if student: \texttt{answer == "yes"}
+    \item To check for Eswatini: \texttt{"Eswatini" in country}
+    \item Student discount applies to everyone who is a student
+    \item Bulk discount only applies if subtotal > 500
+    \item Both discounts can apply to the same purchase
+\end{itemize}
+
+\subsection*{Mark Breakdown}
+\begin{itemize}
+    \item Correct input collection: 15 marks
+    \item Subtotal calculation using arithmetic operators: 10 marks
+    \item Student discount calculation: 15 marks
+    \item Bulk discount using comparison operators: 15 marks
+    \item Delivery fee using membership operators: 15 marks
+    \item Final total calculation: 10 marks
+    \item Proper output formatting: 10 marks
+    \item Use of logical operators for conditions: 10 marks
+    \item \textbf{Total: 100 marks}
+\end{itemize}
+
+\subsection*{Testing Your Program}
+
+Test with these scenarios:
+\begin{enumerate}
+    \item Student from Eswatini buying E530 worth (should get both discounts, no delivery fee)
+    \item Non-student from Eswatini buying E300 (no discounts, no delivery fee)
+    \item Student from South Africa buying E600 (both discounts, E50 delivery)
+    \item Non-student from Mozambique buying E400 (no discounts, E50 delivery)
+\end{enumerate}
+    
+    \item \textbf{Basic Calculator with Compound Operations} \hfill \textbf{[50 marks]}
+    
+    Create a simple calculator program that demonstrates arithmetic and assignment operators:
+    
+    \begin{enumerate}
+        \item Accept two numbers from the user.
+        \item Display all seven basic arithmetic operations.
+        \item Accept a third number and demonstrate compound assignment operators.
+        \item Compare the first two numbers using comparison operators.
+        \item Display results clearly with labels.
+    \end{enumerate}
+    
+    \textbf{Mark Breakdown:}
+    \begin{itemize}
+        \item Basic arithmetic operations (7 operations): 15 marks
+        \item Compound assignment operators (7 operations): 15 marks
+        \item Comparison operators (6 comparisons): 10 marks
+        \item Output formatting and labels: 10 marks
+    \end{itemize}
+    
+    \textbf{Example Python Skeleton:}
+    \begin{lstlisting}
+print("=== BASIC CALCULATOR PROGRAM ===\n")
+
+# Part 1: Get user input
+print("Part 1: Basic Arithmetic Operations")
+num1 = float(input("Enter first number: "))
+num2 = float(input("Enter second number: "))
+
+# Part 2: Perform all arithmetic operations
+print(f"\n--- Arithmetic Results for {num1} and {num2} ---")
+
+addition = num1 + num2
+subtraction = num1 - num2
+multiplication = num1 * num2
+division = num1 / num2
+floor_division = num1 // num2
+modulus = num1 % num2
+exponentiation = num1 ** num2
+
+print(f"Addition: {num1} + {num2} = {addition}")
+print(f"Subtraction: {num1} - {num2} = {subtraction}")
+print(f"Multiplication: {num1} * {num2} = {multiplication}")
+print(f"Division: {num1} / {num2} = {division}")
+print(f"Floor Division: {num1} // {num2} = {floor_division}")
+print(f"Modulus: {num1} % {num2} = {modulus}")
+print(f"Exponentiation: {num1} ** {num2} = {exponentiation}")
+
+# Part 3: Compound Assignment Operators
+print("\n\nPart 2: Compound Assignment Operations")
+print("Starting value: 100")
+value = 100
+
+num3 = float(input("Enter a number for compound operations: "))
+
+value += num3
+print(f"After value += {num3}, result = {value}")
+
+value -= num3
+print(f"After value -= {num3}, result = {value}")
+
+value *= num3
+print(f"After value *= {num3}, result = {value}")
+
+value /= num3
+print(f"After value /= {num3}, result = {value}")
+
+value %= num3
+print(f"After value %= {num3}, result = {value}")
+
+value **= 2
+print(f"After value **= 2, result = {value}")
+
+value //= 2
+print(f"After value //= 2, result = {value}")
+
+# Part 4: Comparison Operators
+print("\n\nPart 3: Comparison Operations")
+print(f"Comparing {num1} and {num2}:")
+
+equal = num1 == num2
+not_equal = num1 != num2
+greater = num1 > num2
+less = num1 < num2
+greater_equal = num1 >= num2
+less_equal = num1 <= num2
+
+print(f"{num1} == {num2} is {equal}")
+print(f"{num1} != {num2} is {not_equal}")
+print(f"{num1} > {num2} is {greater}")
+print(f"{num1} < {num2} is {less}")
+print(f"{num1} >= {num2} is {greater_equal}")
+print(f"{num1} <= {num2} is {less_equal}")
+
+print("\n=== END OF CALCULATOR PROGRAM ===")
+    \end{lstlisting}
+
+\newpage
+
+    \item \textbf{Simple Student Information and Validation} \hfill \textbf{[50 marks]}
+    
+    Create a simple program that collects student information and performs basic validations:
+    
+    \begin{enumerate} 
+        \item Accept student information: name, email, age, and GPA.
+        \item Use membership operators to check for specific characters in strings.
+        \item Use logical operators to evaluate simple conditions.
+        \item Display all validation results clearly.
+    \end{enumerate}
+    
+    \textbf{Mark Breakdown:}
+    \begin{itemize}
+        \item Input collection: 10 marks
+        \item Membership operator checks (5 checks): 15 marks
+        \item Logical operator evaluations: 15 marks
+        \item Output formatting and display: 10 marks
+    \end{itemize}
+    
+    \textbf{Example Python Skeleton:}
+    \begin{lstlisting}
+print("=== STUDENT INFORMATION SYSTEM ===\n")
+
+# Part 1: Collect Student Information
+print("Part 1: Enter Student Information")
+student_name = input("Enter student full name: ")
+student_email = input("Enter student email: ")
+student_age = int(input("Enter student age: "))
+student_gpa = float(input("Enter student GPA (0.0-4.0): "))
+
+print("\n--- Student Details ---")
+print(f"Name: {student_name}")
+print(f"Email: {student_email}")
+print(f"Age: {student_age}")
+print(f"GPA: {student_gpa}")
+
+# Part 2: Membership Operator Checks
+print("\n\nPart 2: String Validation Using Membership Operators")
+
+# Check if name contains a space
+has_space = " " in student_name
+print(f"Name contains a space: {has_space}")
+
+# Check if name contains numbers
+has_number = ("0" in student_name or "1" in student_name or 
+              "2" in student_name or "3" in student_name)
+print(f"Name contains a number: {has_number}")
+
+# Check if email contains @
+has_at = "@" in student_email
+print(f"Email contains @: {has_at}")
+
+# Check if email contains .
+has_dot = "." in student_email
+print(f"Email contains dot (.): {has_dot}")
+
+# Check if email contains space
+has_email_space = " " in student_email
+print(f"Email contains space: {has_email_space}")
+
+# Part 3: Logical Operator Evaluations
+print("\n\nPart 3: Logical Evaluations")
+
+# Check using AND operator
+adult_and_good_gpa = student_age >= 18 and student_gpa >= 3.0
+print(f"Student is 18+ AND has GPA >= 3.0: {adult_and_good_gpa}")
+
+# Check using OR operator
+young_or_excellent = student_age < 25 or student_gpa >= 3.5
+print(f"Student is under 25 OR has GPA >= 3.5: {young_or_excellent}")
+
+# Check using NOT operator
+not_excellent = not (student_gpa >= 3.5)
+print(f"Student does NOT have excellent GPA (3.5+): {not_excellent}")
+
+# Multiple conditions with AND
+valid_email = has_at and has_dot and not has_email_space
+print(f"Email is valid (has @ AND . AND no spaces): {valid_email}")
+
+# Multiple conditions with OR
+needs_attention = student_gpa < 2.0 or student_age < 16
+print(f"Student needs attention (GPA < 2.0 OR age < 16): {needs_attention}")
+
+# Part 4: Identity vs Equality Demonstration
+print("\n\nPart 4: Identity vs Equality")
+
+age1 = student_age
+age2 = student_age
+
+print(f"age1 = {age1}")
+print(f"age2 = {age2}")
+print(f"age1 == age2 (equality): {age1 == age2}")
+print(f"age1 is age2 (identity): {age1 is age2}")
+
+# Compare GPA values
+gpa1 = 3.5
+gpa2 = 3.5
+
+print(f"\ngpa1 = {gpa1}")
+print(f"gpa2 = {gpa2}")
+print(f"gpa1 == gpa2 (equality): {gpa1 == gpa2}")
+print(f"gpa1 is gpa2 (identity): {gpa1 is gpa2}")
+
+# Part 5: Summary Report
+print("\n\n=== SUMMARY REPORT ===")
+print(f"Student Name: {student_name}")
+print(f"Valid Name Format: {has_space and not has_number}")
+print(f"Valid Email Format: {valid_email}")
+print(f"Academic Status: ", end="")
+
+# Simple GPA classification without complex if-elif
+excellent = student_gpa >= 3.5
+good = student_gpa >= 3.0 and student_gpa < 3.5
+satisfactory = student_gpa >= 2.0 and student_gpa < 3.0
+
+print(f"Excellent: {excellent}, Good: {good}, Satisfactory: {satisfactory}")
+
+print("\n=== END OF STUDENT INFORMATION SYSTEM ===")
+    \end{lstlisting}
+
+\end{enumerate}
+    
+%     Create a calculator program that performs basic arithmetic operations:
+%     \begin{enumerate} 
+%         \item Accept two numbers from the user (use float data type).
+%         \item Perform and display the results of all arithmetic operations:
+%         \begin{itemize}
+%             \item Addition (+)
+%             \item Subtraction (-)
+%             \item Multiplication (*)
+%             \item Division (/)
+%             \item Floor Division (//)
+%             \item Modulus (%)
+%             \item Exponentiation (**)
+%         \end{itemize}
+%         \item Format the output clearly with descriptive labels.
+%         \item Handle division by zero appropriately using if statements.
+%     \end{enumerate}
+    
+%     \textbf{Example Python Skeleton:}
+%     \begin{lstlisting}
+% num1 = float(input("Enter first number: "))
+% num2 = float(input("Enter second number: "))
+
+% # Perform arithmetic operations
+% addition = num1 + num2
+% subtraction = num1 - num2
+% multiplication = num1 * num2
+% exponentiation = num1 ** num2
+
+% # Check for division by zero
+% if num2 != 0:
+%     division = num1 / num2
+%     floor_division = num1 // num2
+%     modulus = num1 % num2
+    
+%     print(f"\n=== Calculator Results ===")
+%     print(f"{num1} + {num2} = {addition}")
+%     print(f"{num1} - {num2} = {subtraction}")
+%     print(f"{num1} * {num2} = {multiplication}")
+%     print(f"{num1} / {num2} = {division}")
+%     print(f"{num1} // {num2} = {floor_division}")
+%     print(f"{num1} % {num2} = {modulus}")
+%     print(f"{num1} ** {num2} = {exponentiation}")
+% else:
+%     print("Error: Cannot divide by zero!")
+%     \end{lstlisting}
+    
+%     \item \textbf{Compound Assignment Operators} \hfill \textbf{[12 marks]}
+    
+%     Create a program that demonstrates all compound assignment operators:
+%     \begin{enumerate} 
+%         \item Start with an initial value of 100.
+%         \item Accept a number from the user.
+%         \item Apply each compound assignment operator sequentially:
+%         \begin{itemize}
+%             \item += (add and assign)
+%             \item -= (subtract and assign)
+%             \item *= (multiply and assign)
+%             \item /= (divide and assign)
+%             \item \%= (modulus and assign)
+%             \item **= (exponent and assign)
+%             \item //= (floor divide and assign)
+%         \end{itemize}
+%         \item Display the result after each operation.
+%     \end{enumerate}
+    
+%     \textbf{Example Python Skeleton:}
+%     \begin{lstlisting}
+% value = 100
+% operand = float(input("Enter a number: "))
+
+% print(f"Initial value: {value}")
+
+% value += operand
+% print(f"After += operation: {value}")
+
+% value -= operand
+% print(f"After -= operation: {value}")
+
+% value *= operand
+% print(f"After *= operation: {value}")
+
+% if operand != 0:
+%     value /= operand
+%     print(f"After /= operation: {value}")
+    
+%     value %= operand
+%     print(f"After %= operation: {value}")
+    
+%     value //= operand
+%     print(f"After //= operation: {value}")
+
+% value **= 2
+% print(f"After **= operation (squared): {value}")
+%     \end{lstlisting}
+
+%     \item \textbf{Grade Classification System} \hfill \textbf{[15 marks]}
+    
+%     Create a program that classifies student grades using comparison and logical operators:
+%     \begin{enumerate} 
+%         \item Accept a student's score (0-100).
+%         \item Use comparison operators to classify the grade:
+%         \begin{itemize}
+%             \item A: score >= 80
+%             \item B: score >= 70 and score < 80
+%             \item C: score >= 60 and score < 70
+%             \item D: score >= 50 and score < 60
+%             \item F: score < 50
+%         \end{itemize}
+%         \item Check if the score is valid (between 0 and 100).
+%         \item Display whether the student passed (score >= 50).
+%         \item Use logical operators (and, or, not) in your conditions.
+%     \end{enumerate}
+    
+%     \textbf{Example Python Skeleton:}
+%     \begin{lstlisting}
+% score = float(input("Enter student score (0-100): "))
+
+% # Validate score
+% if score >= 0 and score <= 100:
+%     # Classify grade using comparison operators
+%     if score >= 80:
+%         grade = "A"
+%     elif score >= 70 and score < 80:
+%         grade = "B"
+%     elif score >= 60 and score < 70:
+%         grade = "C"
+%     elif score >= 50 and score < 60:
+%         grade = "D"
+%     else:
+%         grade = "F"
+    
+%     # Check pass/fail status
+%     passed = score >= 50
+    
+%     print(f"\nScore: {score}")
+%     print(f"Grade: {grade}")
+    
+%     if passed:
+%         print("Status: PASSED")
+%     else:
+%         print("Status: FAILED")
+        
+%     # Additional conditions using logical operators
+%     if score >= 70 and score <= 100:
+%         print("Distinction achieved!")
+%     elif score >= 50 or grade == "D":
+%         print("Satisfactory performance.")
+    
+%     if not passed:
+%         print("Remedial work required.")
+% else:
+%     print("Error: Score must be between 0 and 100")
+%     \end{lstlisting}
+
+%     \item \textbf{Number Comparison Tool} \hfill \textbf{[15 marks]}
+    
+%     Create a program that compares three numbers using all comparison operators:
+%     \begin{enumerate} 
+%         \item Accept three numbers from the user.
+%         \item Compare the numbers using all comparison operators (==, !=, >, <, >=, <=).
+%         \item Determine and display:
+%         \begin{itemize}
+%             \item Which number is largest
+%             \item Which number is smallest
+%             \item Whether any numbers are equal
+%             \item Whether all numbers are different
+%             \item Whether the numbers are in ascending order
+%         \end{itemize}
+%     \end{enumerate}
+    
+%     \textbf{Example Python Skeleton:}
+%     \begin{lstlisting}
+% num1 = float(input("Enter first number: "))
+% num2 = float(input("Enter second number: "))
+% num3 = float(input("Enter third number: "))
+
+% print(f"\n=== Comparison Results ===")
+% print(f"Numbers: {num1}, {num2}, {num3}")
+
+% # Find largest
+% if num1 >= num2 and num1 >= num3:
+%     largest = num1
+% elif num2 >= num1 and num2 >= num3:
+%     largest = num2
+% else:
+%     largest = num3
+
+% print(f"Largest number: {largest}")
+
+% # Find smallest
+% if num1 <= num2 and num1 <= num3:
+%     smallest = num1
+% elif num2 <= num1 and num2 <= num3:
+%     smallest = num2
+% else:
+%     smallest = num3
+
+% print(f"Smallest number: {smallest}")
+
+% # Check equality
+% if num1 == num2 == num3:
+%     print("All numbers are equal")
+% elif num1 == num2 or num2 == num3 or num1 == num3:
+%     print("Some numbers are equal")
+% else:
+%     print("All numbers are different")
+
+% # Check ascending order
+% if num1 < num2 and num2 < num3:
+%     print("Numbers are in ascending order")
+% else:
+%     print("Numbers are not in ascending order")
+%     \end{lstlisting}
+
+%     \item \textbf{String Membership Validator} \hfill \textbf{[15 marks]}
+    
+%     Create a program that validates data using membership operators on strings:
+%     \begin{enumerate} 
+%         \item Accept a full name from the user.
+%         \item Accept an email address from the user.
+%         \item Accept a phone number as a string.
+%         \item Use membership operators (in, not in) to validate:
+%         \begin{itemize}
+%             \item Name contains at least one space (has first and last name)
+%             \item Email contains "@" and "."
+%             \item Phone number contains only digits, spaces, or hyphens
+%             \item Name does not contain numbers
+%         \end{itemize}
+%         \item Display whether each validation passes or fails.
+%         \item Count how many validations passed.
+%     \end{enumerate}
+    
+%     \textbf{Example Python Skeleton:}
+%     \begin{lstlisting}
+% # Get user input
+% full_name = input("Enter your full name: ")
+% email = input("Enter your email address: ")
+% phone = input("Enter your phone number: ")
+
+% valid_count = 0
+
+% print("\n=== Validation Results ===\n")
+
+% # Validate name has space
+% if " " in full_name:
+%     print("Name validation: PASSED (Contains first and last name)")
+%     valid_count += 1
+% else:
+%     print("Name validation: FAILED (Must include first and last name)")
+
+% # Validate name has no digits
+% has_digit = "0" in full_name or "1" in full_name or "2" in full_name or \
+%             "3" in full_name or "4" in full_name or "5" in full_name or \
+%             "6" in full_name or "7" in full_name or "8" in full_name or \
+%             "9" in full_name
+
+% if not has_digit:
+%     print("Name validation: PASSED (No numbers in name)")
+%     valid_count += 1
+% else:
+%     print("Name validation: FAILED (Name contains numbers)")
+
+% # Validate email
+% if "@" in email and "." in email:
+%     print("Email validation: PASSED (Contains @ and .)")
+%     valid_count += 1
+% else:
+%     print("Email validation: FAILED (Must contain @ and .)")
+
+% # Validate phone contains only valid characters
+% # Check for common invalid characters
+% has_letters = ("a" in phone or "b" in phone or "c" in phone or "d" in phone or 
+%                "e" in phone or "f" in phone or "g" in phone or "A" in phone or 
+%                "B" in phone or "C" in phone)
+% has_special = ("@" in phone or "#" in phone or "$" in phone or "%" in phone or
+%                "&" in phone or "*" in phone or "!" in phone)
+
+% if not has_letters and not has_special:
+%     print("Phone validation: PASSED (Valid format)")
+%     valid_count += 1
+% else:
+%     print("Phone validation: FAILED (Contains invalid characters)")
+
+% # Summary
+% print(f"\n{valid_count} out of 4 validations passed.")
+
+% if valid_count == 4:
+%     print("All validations successful!")
+% elif valid_count >= 3:
+%     print("Good - most validations passed!")
+% elif valid_count >= 2:
+%     print("Fair - some validations passed.")
+% else:
+%     print("Please check your inputs carefully.")
+%     \end{lstlisting}
+
+%     \item \textbf{Identity vs Equality Demonstrator} \hfill \textbf{[13 marks]}
+    
+%     Create a program that demonstrates the difference between identity (is) and equality (==) operators:
+%     \begin{enumerate} 
+%         \item Create various list variables with same and different values.
+%         \item Test both identity (is, is not) and equality (==, !=) operators.
+%         \item Demonstrate how two lists can be equal in value but not identical objects.
+%         \item Create a variable that references another and show they are identical.
+%         \item Display clear explanations of the results.
+%     \end{enumerate}
+    
+%     \textbf{Example Python Skeleton:}
+%     \begin{lstlisting}
+% # Create lists with same values but different objects
+% list1 = ["apple", "banana", "orange"]
+% list2 = ["apple", "banana", "orange"]
+% list3 = list1  # Reference to list1
+
+% print("=== Identity vs Equality ===\n")
+
+% print(f"list1: {list1}")
+% print(f"list2: {list2}")
+% print(f"list3: {list3}")
+
+% # Test equality
+% print(f"\nlist1 == list2: {list1 == list2}")
+% print("Explanation: Lists have same values (equal)")
+
+% # Test identity
+% print(f"\nlist1 is list2: {list1 is list2}")
+% print("Explanation: Different objects in memory (not identical)")
+
+% print(f"\nlist1 is list3: {list1 is list3}")
+% print("Explanation: list3 references list1 (identical objects)")
+
+% # Demonstrate with modification
+% list1.append("grape")
+% print(f"\nAfter appending to list1:")
+% print(f"list1: {list1}")
+% print(f"list2: {list2}")
+% print(f"list3: {list3}")
+
+% print("\nNotice: list3 changed because it references list1")
+% print("list2 did not change because it's a separate object")
+
+% # Test with numbers
+% num1 = 5
+% num2 = 5
+% print(f"\nnum1 = {num1}, num2 = {num2}")
+% print(f"num1 == num2: {num1 == num2}")
+% print(f"num1 is num2: {num1 is num2}")
+% print("Small integers are cached in Python, so they are identical")
+%     \end{lstlisting}
+
+%     \item \textbf{Eligibility Checker System} \hfill \textbf{[15 marks]}
+    
+%     Create a program that checks eligibility for various privileges using multiple operators:
+%     \begin{enumerate} 
+%         \item Accept user information:
+%         \begin{itemize}
+%             \item Age (integer)
+%             \item Has driver's license (yes/no)
+%             \item Is student (yes/no)
+%             \item Annual income (float)
+%         \end{itemize}
+%         \item Determine eligibility for:
+%         \begin{itemize}
+%             \item Voting (age >= 18)
+%             \item Car rental (age >= 21 and has license)
+%             \item Student discount (is student and age <= 25)
+%             \item Loan approval (age >= 18 and income > 20000)
+%             \item Senior discount (age >= 60)
+%         \end{itemize}
+%         \item Use combination of comparison, logical, and membership operators.
+%         \item Display results for each privilege check.
+%     \end{enumerate}
+    
+%     \textbf{Example Python Skeleton:}
+%     \begin{lstlisting}
+% # Get user information
+% age = int(input("Enter your age: "))
+% has_license = input("Do you have a driver's license? (yes/no): ").lower()
+% is_student = input("Are you a student? (yes/no): ").lower()
+% income = float(input("Enter your annual income (E): "))
+
+% # Convert yes/no to boolean
+% has_license = has_license in ["yes", "y"]
+% is_student = is_student in ["yes", "y"]
+
+% print("\n=== Eligibility Check Results ===\n")
+
+% # Voting eligibility
+% voting_eligible = age >= 18
+% print(f"Voting: {'ELIGIBLE' if voting_eligible else 'NOT ELIGIBLE'}")
+% if not voting_eligible:
+%     print(f"  (Minimum age: 18, Your age: {age})")
+
+% # Car rental eligibility
+% car_rental = age >= 21 and has_license
+% print(f"\nCar Rental: {'ELIGIBLE' if car_rental else 'NOT ELIGIBLE'}")
+% if not car_rental:
+%     if age < 21:
+%         print("  Reason: Age must be 21+")
+%     if not has_license:
+%         print("  Reason: Driver's license required")
+
+% # Student discount eligibility
+% student_discount = is_student and age <= 25
+% print(f"\nStudent Discount: {'ELIGIBLE' if student_discount else 'NOT ELIGIBLE'}")
+
+% # Loan approval
+% loan_approval = age >= 18 and income > 20000
+% print(f"\nLoan Approval: {'ELIGIBLE' if loan_approval else 'NOT ELIGIBLE'}")
+% if not loan_approval:
+%     if age < 18:
+%         print("  Reason: Must be 18+")
+%     if income <= 20000:
+%         print(f"  Reason: Income must exceed E20,000 (Current: E{income})")
+
+% # Senior discount
+% senior_discount = age >= 60
+% print(f"\nSenior Discount: {'ELIGIBLE' if senior_discount else 'NOT ELIGIBLE'}")
+
+% # Summary
+% eligibility_count = 0
+% if voting_eligible:
+%     eligibility_count += 1
+% if car_rental:
+%     eligibility_count += 1
+% if student_discount:
+%     eligibility_count += 1
+% if loan_approval:
+%     eligibility_count += 1
+% if senior_discount:
+%     eligibility_count += 1
+
+% print(f"\nYou are eligible for {eligibility_count} out of 5 privileges.")
+%     \end{lstlisting}
+
+% \end{enumerate}
+
+% \section*{Mark Allocation Summary}
+
+% \textbf{Shopping Bill Calculator Exercise: 100 marks}
+% \begin{itemize}
+%     \item Input collection: 15 marks
+%     \item Subtotal calculation: 10 marks
+%     \item Student discount calculation: 15 marks
+%     \item Bulk discount with comparison operators: 15 marks
+%     \item Delivery fee with membership operators: 15 marks
+%     \item Final total calculation: 10 marks
+%     \item Output formatting: 10 marks
+%     \item Logical operators usage: 10 marks
+% \end{itemize}
+
+% \section*{Operator Coverage}
+
+% This exercise covers the following operator types from your lecture:
+% \begin{itemize}
+%     \item \textbf{Arithmetic Operators} (+, -, *, /): For calculating totals and discounts
+%     \item \textbf{Comparison Operators} (>, >=, ==): For checking discount eligibility
+%     \item \textbf{Logical Operators} (and, or): For combining conditions
+%     \item \textbf{Membership Operators} (in, not in): For checking country name
+% \end{itemize}
+
+\end{document}

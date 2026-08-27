@@ -1,0 +1,75 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{tcolorbox}
+\usepackage{amsmath}
+\usepackage{ulem}
+\usepackage{enumitem}
+\usepackage{amssymb}
+
+\tcbset{
+    frame code={},
+    center title,
+    left=0pt,
+    right=0pt,
+    top=0pt,
+    bottom=0pt,
+    colback=white!10,
+    colframe=white!20,
+    width=\textwidth,
+    enlarge left by=0mm,
+    boxsep=3pt,
+    arc=0pt,
+    outer arc=0pt,
+    before skip=0pt,
+    after skip=0pt,
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{center}
+\large\textbf{CSC112 - TEST2a: 8-Bit Binary Arithmetic} (\textbf{Marks}: 25) \\
+ \textbf{ID}: \underline{\hspace{3cm}} \textbf{Name}: \underline{\hspace{8cm}} \quad  \textbf{Date}: 2026-01-07  
+\end{center}
+
+\textbf{Instructions:} For all questions, assume an 8-bit binary machine where the $8^{th}$ bit is the sign bit (0 for positive, 1 for negative). The other 7 bits are available for magnitude. Given: $A = 20_{10}$, $B = 2B_{16}$, $C = 36_{8}$, $D = -12_{10}$, answer the following:-
+
+\begin{tcolorbox}
+(a) Express $D$ as an 8-bit number.  \hfill  \uline{\textbf{8-bit ANSWER}: \hspace{0.2\textwidth}}
+
+\vspace{3cm}
+
+\end{tcolorbox}
+
+
+\begin{tcolorbox}
+(b) Calculate binary sum of A and B. \hfill  \uline{\textbf{8-bit ANSWER}: \hspace{0.2\textwidth}}
+
+\vspace{5cm}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}
+(c) Calculate A - B using 2's complement method. \hfill  \uline{\textbf{8-bit ANSWER}: \hspace{0.2\textwidth}}
+
+\vspace{5cm}
+
+\end{tcolorbox}
+\begin{tcolorbox}
+(d) Compute C + D using 2's complement method. \hfill  \uline{\textbf{8-bit ANSWER}: \hspace{0.2\textwidth}}
+
+\vspace{5cm}
+
+\end{tcolorbox}
+\begin{tcolorbox}
+(e) In a machine using \texttt{2's complement} system, can the number $-132_{10}$ be represented in the 8-bit machine? Justify. \hfill \uline{\textbf{ANSWER}: \hspace{0.2\textwidth}}
+
+% \vspace{6cm}
+
+\end{tcolorbox}
+
+\end{document}
